@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//TODO:[runApp] [MyApp] [build Method] [MaterialApp] [Scaffold] [Center] [Text] [Container]
 void main() {
   runApp(const MyApp());
 }
@@ -10,126 +11,74 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      home: Scaffold(
+        body: Center(
+            child: Container(
+          //! 1
+          decoration: const BoxDecoration(
+            color: Colors.blueAccent,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 10,
+                spreadRadius: 15,
+                blurStyle: BlurStyle.normal,
+                offset: Offset(-5, 0),
+              ),
+            ],
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+            ),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+
+          width: 300,
+          height: 200,
+          alignment: Alignment.center,
+          child: Container(
+            //? 2
+            margin: const EdgeInsets.all(20),
+            alignment: Alignment.center,
+
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              border: Border.all(color: Colors.black, width: 2),
+              shape: BoxShape.circle,
+            ),
+            width: double.infinity,
+            height: double.infinity,
+            child: Text(
+              "Hello \nWorld",
+              style: TextStyle(
+                height: 1.5,
+                fontSize: 30,
+                color: Colors.green[600],
+                fontWeight: FontWeight.w900,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.deepOrange,
+                decorationThickness: 3,
+                decorationStyle: TextDecorationStyle.wavy,
+              ),
+            ),
+          ),
+        )),
       ),
-      home: const MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+// Widgets can be => visible vs  invisible
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+// FontWeight => w100 => w900 // normal => w400 // bold => w700
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [Icon(Icons.camera), SizedBox(width: 12), Text("Facebook")],
-        ),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Container(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(30)),
-              height: 200,
-              child: Stack(
-                alignment: AlignmentDirectional.bottomEnd,
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                    child: Text(
-                      "Facebook",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          child: Icon(Icons.image),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Abdalluh Essam",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            Text(
-                              "20/10/2000",
-                              style: TextStyle(
-                                  color: Colors.grey, fontSize: 12, height: 1),
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        Icon(Icons.menu_outlined)
-                      ],
-                    ),
-                    const Divider(),
-                    const Text("data"),
-                    const Text("data"),
-                    const Icon(Icons.image),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text("0 Likes"),
-                        ElevatedButton.icon(
-                            onPressed: () {},
-                            icon: const Icon(Icons.favorite),
-                            label: const Text("Like")),
-                        ElevatedButton.icon(
-                            onPressed: () {},
-                            icon: const Icon(Icons.telegram),
-                            label: const Text("Comment")),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+// const => Text("hello World!") x20
+
+// MaterialApp => material design
+
+// Pascal case => [classes] => MyApp
+
+// Camel case => [variables] [functions] =>  userDataInfo , getUserData(){};
+
+// Snake case => files folders => home_screen
