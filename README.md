@@ -1,4 +1,4 @@
-# flutter_course
+# flutter_course_for_beginners
 
 A new Flutter project.
 
